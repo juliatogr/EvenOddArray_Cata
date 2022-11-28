@@ -1,6 +1,5 @@
 package cata;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -14,23 +13,18 @@ public class Main {
 
 	public static void main(String[] args) {
 		Random rd = new Random(); // creating Random object
+		
+		//Creating array
 		Integer[] arr = new Integer[20]; 
+		Arrays.setAll(arr, n->rd.nextInt(100));
 		
-		int lastEven = 0;
-		int lastOdd = 19;
+		System.out.println(Arrays.toString(arr));
 		
-		for (int i = 0; i < arr.length; i++) {
-			
-			int rand = rd.nextInt(100); 
-			if (rand % 2 == 0) {
-				arr[lastEven] = rand;
-				lastEven++;
-			} else {
-				arr[lastOdd] = rand;
-				lastOdd--;
-			}
-	    }
+		//Sorting
 		
+		Arrays.sort(arr);
+		Arrays.sort(arr, (n1,n2)->n1%2 - n2%2);
+
 		System.out.println(Arrays.toString(arr));
 		
 
